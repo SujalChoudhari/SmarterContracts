@@ -20,7 +20,7 @@ contract Template {
 
     modifier onlyFixedAmount(uint256 requiredValue) {
         require(
-            msg.value == requiredValue,
+            msg.value == requiredValue * 1 wei,
             "Required amount differs the Sent amount"
         );
         _;
@@ -28,7 +28,7 @@ contract Template {
 
     modifier onlyEnoughBalance(uint256 requiredBalance) {
         require(
-            msg.sender.balance >= requiredBalance,
+            msg.sender.balance / 1 wei >= requiredBalance / 1 wei,
             "Not enough balance in account"
         );
         _;
